@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+// 返回可执行程序的绝对路径: /Users/liwei/coding/go/run.bin
 // SelfPath gets compiled executable file absolute path
 func SelfPath() string {
 	path, _ := filepath.Abs(os.Args[0])
@@ -26,16 +27,20 @@ func RealPath(fp string) (string, error) {
 	return path.Join(wd, fp), err
 }
 
+// 返回可执行文件的目录：/Users/liwei/coding/go
 // SelfDir gets compiled executable file directory
 func SelfDir() string {
 	return filepath.Dir(SelfPath())
 }
 
+// Base 函数返回路径的最后一个元素 fp=/Users/liwei/main.go 则返回: main.go
+// 给定路径名 /home/polaris/studygolang.go，Dir 返回 /home/polaris，而 Base 返回 studygolang.go
 // get filepath base name
 func Basename(fp string) string {
 	return path.Base(fp)
 }
 
+// 返回目录
 // get filepath dir name
 func Dir(fp string) string {
 	return path.Dir(fp)
